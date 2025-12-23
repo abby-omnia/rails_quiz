@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   # 將首頁設定為產品列表
   root "products#index"
   # 自動生成 7 個標準 CRUD 路由
-  resources :products
+  resources :products do
+    resources :subscribers , only: [:create]
 end
