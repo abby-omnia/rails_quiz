@@ -1,0 +1,10 @@
+
+<% if product.inventory_count.positive? %>
+    <p>庫存剩餘:<%= product.inventory_count %></p>
+<% else %>
+    <p>進貨後請通知我</p>
+    <%= form_with model: [product , Subscriber.new ] do |form| %>
+      <%= form.email_field :email , placeholder: "you@example.com" , required: true %>
+      <%= form.submit "Summit" %>
+    <% end %>
+<% end %>

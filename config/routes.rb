@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "unsubscribes/show"
   resource :session
   resources :passwords, param: :token
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -17,4 +18,7 @@ Rails.application.routes.draw do
   # 自動生成 7 個標準 CRUD 路由
   resources :products do
     resources :subscribers , only: [:create]
+  end
+
+  resource :unsubscribe, only: [ :show ]
 end
